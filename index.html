@@ -19,22 +19,21 @@
       color: #222;
     }
 
-    /* Navigation */
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.95);
+      z-index: 1000;
+      background: white;
       padding: 15px 10px;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 10px rgba(0,0,0,.1);
     }
 
     nav a {
       display: inline-block;
-      margin: 5px 10px;
-      text-decoration: none;
+      margin: 5px 8px;
       color: #222;
+      text-decoration: none;
       font-weight: bold;
     }
 
@@ -42,19 +41,18 @@
       color: #0077ff;
     }
 
-    /* Home */
     .hero {
-      min-height: 90vh;
+      min-height: 85vh;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 40px 20px;
+      padding: 30px 15px;
     }
 
     .hero-content {
       max-width: 700px;
-      animation: fadeUp 1.2s ease;
+      animation: fadeUp 1s ease;
     }
 
     .profile {
@@ -63,40 +61,40 @@
       object-fit: cover;
       border-radius: 50%;
       border: 5px solid white;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-      animation: float 3s ease-in-out infinite;
+      box-shadow: 0 8px 25px rgba(0,0,0,.2);
+      animation: floating 3s ease-in-out infinite;
     }
 
-    .hero h1 {
+    h1 {
       font-size: 42px;
-      margin: 20px 0 10px;
     }
 
     .hero p {
-      font-size: 19px;
+      font-size: 18px;
       line-height: 1.7;
     }
 
     .button {
       display: inline-block;
-      margin-top: 15px;
-      padding: 13px 25px;
+      margin: 10px 5px;
+      padding: 12px 22px;
       background: #222;
       color: white;
       text-decoration: none;
-      border-radius: 30px;
-      transition: 0.3s;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
     }
 
     .button:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
-    /* Sections */
     section {
       max-width: 800px;
       margin: auto;
-      padding: 70px 20px;
+      padding: 60px 15px;
     }
 
     .card {
@@ -104,39 +102,64 @@
       padding: 30px;
       margin: 20px 0;
       border-radius: 18px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      animation: fadeUp 1s ease;
-    }
-
-    .card h2 {
-      margin-top: 0;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
     }
 
     .service {
+      background: #f1f5fa;
       padding: 15px;
       margin: 10px 0;
-      background: #f1f5fa;
       border-radius: 10px;
     }
 
-    .social a {
-      display: inline-block;
-      margin: 8px;
-      padding: 10px 15px;
-      border-radius: 8px;
-      background: #eee;
-      color: #222;
-      text-decoration: none;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .auth-box {
+      max-width: 450px;
+      margin: auto;
+    }
+
+    .message {
+      margin-top: 12px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .user-panel {
+      display: none;
+      text-align: center;
+    }
+
+    .logged-in-email {
+      font-weight: bold;
+      margin: 10px 0;
+      word-break: break-word;
     }
 
     footer {
-      text-align: center;
       background: #222;
       color: white;
+      text-align: center;
       padding: 25px;
     }
 
-    /* Animations */
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -149,30 +172,24 @@
       }
     }
 
-    @keyframes float {
+    @keyframes floating {
       0%, 100% {
         transform: translateY(0);
       }
 
       50% {
-        transform: translateY(-12px);
+        transform: translateY(-10px);
       }
     }
 
-    /* Mobile Responsive */
     @media (max-width: 600px) {
-
       nav a {
-        margin: 4px;
         font-size: 14px;
+        margin: 4px;
       }
 
-      .hero h1 {
+      h1 {
         font-size: 32px;
-      }
-
-      .hero p {
-        font-size: 16px;
       }
 
       .profile {
@@ -181,38 +198,9 @@
       }
 
       section {
-        padding: 50px 15px;
+        padding: 45px 15px;
       }
     }
-    form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-}
-
-textarea {
-  resize: vertical;
-}
-
-form button {
-  padding: 14px;
-  border: none;
-  border-radius: 10px;
-  background: #222;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
   </style>
 </head>
 
@@ -224,9 +212,11 @@ form button {
     <a href="#about">👤 About</a>
     <a href="#services">🛠️ Services</a>
     <a href="#contact">📞 Contact</a>
+    <a href="#login">🔐 Login</a>
   </nav>
 
-  <!-- Home -->
+
+  <!-- HOME -->
   <div class="hero" id="home">
     <div class="hero-content">
 
@@ -240,19 +230,21 @@ form button {
 
       <p>
         Welcome to my personal website.
-        আমি Website Design, Technology এবং নতুন কিছু শেখার বিষয়ে আগ্রহী।
+        আমি Technology, Website Design এবং নতুন কিছু শেখার বিষয়ে আগ্রহী।
       </p>
 
-      <a href="#contact" class="button">
-        Contact Me
-      </a>
+      <a href="#about" class="button">About Me</a>
+      <a href="#contact" class="button">Contact Me</a>
 
     </div>
   </div>
 
-  <!-- About -->
+
+  <!-- ABOUT -->
   <section id="about">
+
     <div class="card">
+
       <h2>👤 About Me</h2>
 
       <p>
@@ -264,81 +256,462 @@ form button {
         আমার লক্ষ্য হলো নতুন দক্ষতা শেখা এবং নিজের কাজ দিয়ে
         একটি ভালো online portfolio তৈরি করা।
       </p>
+
     </div>
+
   </section>
 
-  <!-- Services -->
+
+  <!-- SERVICES -->
   <section id="services">
+
     <div class="card">
+
       <h2>🛠️ My Services</h2>
 
-      <div class="service">🌐 Website Design</div>
-      <div class="service">💻 HTML & CSS Website</div>
-      <div class="service">📱 Mobile Friendly Website</div>
-      <div class="service">🎨 Website Update & Design</div>
+      <div class="service">
+        🌐 Website Design
+      </div>
+
+      <div class="service">
+        💻 HTML & CSS Website
+      </div>
+
+      <div class="service">
+        📱 Mobile Friendly Website
+      </div>
+
+      <div class="service">
+        🎨 Website Update & Design
+      </div>
+
     </div>
+
   </section>
 
-  <!-- Contact -->
+
+  <!-- CONTACT -->
   <section id="contact">
+
     <div class="card">
-  <h2>📩 Send Me a Message</h2>
 
-  <form action="https://formsubmit.co/mdmahabubislam225@gmail.com" method ="Post">
+      <h2>📩 Contact Me</h2>
 
-    <input
-      type="text"
-      name="name"
-      placeholder="আপনার নাম"
-      required
-    >
+      <p>
+        আমার সাথে যোগাযোগ করতে নিচের form ব্যবহার করুন।
+      </p>
 
-    <input
-      type="email"
-      name="email"
-      placeholder="আপনার Email"
-      required
-    >
+      <form
+        action="https://formsubmit.co/mdmahabubislam225@gmail.com"
+        method="POST"
+      >
 
-    <textarea
-      name="message"
-      placeholder="আপনার Message লিখুন"
-      rows="6"
-      required
-    ></textarea>
+        <input
+          type="text"
+          name="name"
+          placeholder="আপনার নাম"
+          required
+        >
 
-    <button type="submit">
-      Send Message
-    </button>
+        <input
+          type="email"
+          name="email"
+          placeholder="আপনার Email"
+          required
+        >
 
-  </form>
-</div>
-    <div class="card">
-      <h2>📞 Contact Me</h2>
+        <textarea
+          name="message"
+          rows="6"
+          placeholder="আপনার Message"
+          required
+        ></textarea>
 
-      <p>আমার সাথে যোগাযোগ করতে:</p>
+        <button class="button" type="submit">
+          Send Message
+        </button>
 
-      <div class="social">
+      </form>
 
+      <p>
+        🔵
         <a
           href="https://www.facebook.com/share/17bcfMzNbs/"
-          target="_blank">
-          🔵 Facebook
+          target="_blank"
+        >
+          Facebook
         </a>
+      </p>
 
+      <p>
+        🔴
         <a
           href="https://www.youtube.com/@mdmahabubislam1309"
-          target="_blank">
-          🔴 YouTube
+          target="_blank"
+        >
+          YouTube
         </a>
+      </p>
 
-      </div>
     </div>
+
   </section>
 
+
+  <!-- LOGIN / REGISTER -->
+  <section id="login">
+
+    <div class="card auth-box">
+
+      <h2>🔐 Login / Register</h2>
+
+      <!-- Login Form -->
+      <div id="loginBox">
+
+        <h3>Login</h3>
+
+        <form id="loginForm">
+
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Email"
+            required
+          >
+
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Password"
+            required
+          >
+
+          <button class="button" type="submit">
+            Login
+          </button>
+
+        </form>
+
+        <p>
+          Account নেই?
+          <button
+            class="button"
+            type="button"
+            id="showRegister"
+          >
+            Register
+          </button>
+        </p>
+
+      </div>
+
+
+      <!-- Register Form -->
+      <div id="registerBox" style="display:none;">
+
+        <h3>Create Account</h3>
+
+        <form id="registerForm">
+
+          <input
+            type="email"
+            id="registerEmail"
+            placeholder="Email"
+            required
+          >
+
+          <input
+            type="password"
+            id="registerPassword"
+            placeholder="Password (কমপক্ষে 6 characters)"
+            minlength="6"
+            required
+          >
+
+          <button class="button" type="submit">
+            Register
+          </button>
+
+        </form>
+
+        <p>
+          Already have an account?
+          <button
+            class="button"
+            type="button"
+            id="showLogin"
+          >
+            Login
+          </button>
+        </p>
+
+      </div>
+
+
+      <!-- Logged-in User -->
+      <div id="userPanel" class="user-panel">
+
+        <h3>✅ You are logged in</h3>
+
+        <p>
+          Welcome!
+        </p>
+
+        <p
+          id="userEmail"
+          class="logged-in-email"
+        ></p>
+
+        <button
+          class="button"
+          id="logoutButton"
+        >
+          Logout
+        </button>
+
+      </div>
+
+
+      <div
+        id="authMessage"
+        class="message"
+      ></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2026 Mahabub. All Rights Reserved.</p>
+
+    <p>
+      © 2026 Mahabub. All Rights Reserved.
+    </p>
+
   </footer>
+
+
+  <!-- FIREBASE -->
+  <script type="module">
+
+    import { initializeApp }
+      from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      signOut,
+      onAuthStateChanged
+    }
+    from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+
+
+    // Firebase Configuration
+
+    const firebaseConfig = {
+
+      apiKey: "AIzaSyCiSmfgYpvtPMbcVJq55M7_ybHCdd_F7wA",
+
+      authDomain:
+        "mahabub-website.firebaseapp.com",
+
+      projectId:
+        "mahabub-website",
+
+      storageBucket:
+        "mahabub-website.firebasestorage.app",
+
+      messagingSenderId:
+        "994924544462",
+
+      appId:
+        "1:994924544462:web:804a8fae0d3e2805722b9f"
+
+    };
+
+
+    // Initialize Firebase
+
+    const app =
+      initializeApp(firebaseConfig);
+
+    const auth =
+      getAuth(app);
+
+
+    // Elements
+
+    const loginBox =
+      document.getElementById("loginBox");
+
+    const registerBox =
+      document.getElementById("registerBox");
+
+    const userPanel =
+      document.getElementById("userPanel");
+
+    const userEmail =
+      document.getElementById("userEmail");
+
+    const authMessage =
+      document.getElementById("authMessage");
+
+
+    // Show Register
+
+    document
+      .getElementById("showRegister")
+      .addEventListener("click", () => {
+
+        loginBox.style.display = "none";
+
+        registerBox.style.display = "block";
+
+        authMessage.textContent = "";
+
+      });
+
+
+    // Show Login
+
+    document
+      .getElementById("showLogin")
+      .addEventListener("click", () => {
+
+        registerBox.style.display = "none";
+
+        loginBox.style.display = "block";
+
+        authMessage.textContent = "";
+
+      });
+
+
+    // Register
+
+    document
+      .getElementById("registerForm")
+      .addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const email =
+          document.getElementById("registerEmail").value;
+
+        const password =
+          document.getElementById("registerPassword").value;
+
+        try {
+
+          await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+
+          authMessage.textContent =
+            "✅ Account তৈরি হয়েছে!";
+
+        } catch (error) {
+
+          authMessage.textContent =
+            "❌ " + error.message;
+
+        }
+
+      });
+
+
+    // Login
+
+    document
+      .getElementById("loginForm")
+      .addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const email =
+          document.getElementById("loginEmail").value;
+
+        const password =
+          document.getElementById("loginPassword").value;
+
+        try {
+
+          await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+
+          authMessage.textContent =
+            "✅ Login successful!";
+
+        } catch (error) {
+
+          authMessage.textContent =
+            "❌ Login failed: " + error.message;
+
+        }
+
+      });
+
+
+    // Logout
+
+    document
+      .getElementById("logoutButton")
+      .addEventListener("click", async () => {
+
+        try {
+
+          await signOut(auth);
+
+          authMessage.textContent =
+            "✅ Logout successful.";
+
+        } catch (error) {
+
+          authMessage.textContent =
+            "❌ " + error.message;
+
+        }
+
+      });
+
+
+    // Detect Login State
+
+    onAuthStateChanged(auth, (user) => {
+
+      if (user) {
+
+        loginBox.style.display = "none";
+
+        registerBox.style.display = "none";
+
+        userPanel.style.display = "block";
+
+        userEmail.textContent =
+          user.email;
+
+      } else {
+
+        loginBox.style.display = "block";
+
+        registerBox.style.display = "none";
+
+        userPanel.style.display = "none";
+
+        userEmail.textContent = "";
+
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
