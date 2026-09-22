@@ -201,6 +201,18 @@
         padding: 45px 15px;
       }
     }
+    .dashboard-box {
+  background: #f4f7fb;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.dashboard-icon {
+  font-size: 55px;
+  margin-bottom: 10px;
+}
   </style>
 </head>
 
@@ -446,30 +458,47 @@
         </p>
 
       </div>
+<!-- USER DASHBOARD -->
+<div id="userPanel" class="user-panel">
 
+  <h2>🎉 Welcome to Your Dashboard</h2>
 
-      <!-- Logged-in User -->
-      <div id="userPanel" class="user-panel">
+  <div class="dashboard-box">
 
-        <h3>✅ You are logged in</h3>
+    <div class="dashboard-icon">
+      👤
+    </div>
 
-        <p>
-          Welcome!
-        </p>
+    <h3>My Account</h3>
 
-        <p
-          id="userEmail"
-          class="logged-in-email"
-        ></p>
+    <p>
+      আপনি সফলভাবে Login করেছেন।
+    </p>
 
-        <button
-          class="button"
-          id="logoutButton"
-        >
-          Logout
-        </button>
+    <p>
+      <strong>Email:</strong>
+      <span id="userEmail"></span>
+    </p>
 
-      </div>
+  </div>
+
+  <div class="dashboard-box">
+
+    <h3>📊 My Dashboard</h3>
+
+    <p>✅ Account Active</p>
+    <p>🌐 Website Member</p>
+    <p>🔐 Secure Login</p>
+
+  </div>
+
+  <button
+    class="button"
+    id="logoutButton">
+    🚪 Logout
+  </button>
+
+</div>
 
 
       <div
