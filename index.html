@@ -1,148 +1,282 @@
-<lDoctype html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mahabub Business</title>
+  <title>Mahabub | Personal Website</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      background: #f4f7fb;
+      color: #222;
     }
 
-    header {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 35px 15px;
-    }
-
+    /* Navigation */
     nav {
-      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      padding: 15px 10px;
       text-align: center;
-      padding: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
 
     nav a {
-      margin: 10px;
+      display: inline-block;
+      margin: 5px 10px;
       text-decoration: none;
       color: #222;
       font-weight: bold;
     }
 
-    .container {
+    nav a:hover {
+      color: #0077ff;
+    }
+
+    /* Home */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
       max-width: 700px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .profile {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin: 20px 0 10px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 13px 25px;
+      background: #222;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Sections */
+    section {
+      max-width: 800px;
       margin: auto;
-      padding: 20px;
+      padding: 70px 20px;
     }
 
     .card {
       background: white;
-      padding: 25px;
-      margin: 15px 0;
-      border-radius: 15px;
-      text-align: center;
+      padding: 30px;
+      margin: 20px 0;
+      border-radius: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      animation: fadeUp 1s ease;
     }
 
-    button {
-      background: #222;
-      color: white;
-      border: none;
-      padding: 12px 25px;
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .service {
+      padding: 15px;
+      margin: 10px 0;
+      background: #f1f5fa;
+      border-radius: 10px;
+    }
+
+    .social a {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 15px;
       border-radius: 8px;
-      font-size: 16px;
+      background: #eee;
+      color: #222;
+      text-decoration: none;
     }
 
     footer {
+      text-align: center;
       background: #222;
       color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
+      padding: 25px;
     }
-    .profile {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #222;
-}
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+
+      nav a {
+        margin: 4px;
+        font-size: 14px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .profile {
+        width: 130px;
+        height: 130px;
+      }
+
+      section {
+        padding: 50px 15px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Mahabub Business</h1>
-    <p>আমার অনলাইন ওয়েবসাইট</p>
-  </header>
-
+  <!-- Navigation -->
   <nav>
-    <a href="#">Home</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+    <a href="#home">🏠 Home</a>
+    <a href="#about">👤 About</a>
+    <a href="#services">🛠️ Services</a>
+    <a href="#contact">📞 Contact</a>
   </nav>
 
-  <div class="container">
+  <!-- Home -->
+  <div class="hero" id="home">
+    <div class="hero-content">
 
-    <div class="card">
-  <img src="FB_IMG_1766404124671.jpg" alt="Mahabub" class="profile">
+      <img
+        src="FB_IMG_1766404124671.jpg"
+        alt="Mahabub"
+        class="profile"
+      >
 
-  <h2>👤 About Me</h2>
+      <h1>Hi, I'm Mahabub 👋</h1>
 
-  <p>
-    Hello! আমি Mahabub।
-    আমি Website Design, Technology এবং নতুন কিছু শেখার বিষয়ে আগ্রহী।
-  </p>
-</div>
+      <p>
+        Welcome to my personal website.
+        আমি Website Design, Technology এবং নতুন কিছু শেখার বিষয়ে আগ্রহী।
+      </p>
+
+      <a href="#contact" class="button">
+        Contact Me
+      </a>
+
     </div>
-
-    <div class="card" id="services">
-      <h2>🛠️ আমাদের সেবা</h2>
-
-      <p>🌐 Website Design</p>
-      <p>💻 HTML & CSS Website</p>
-      <p>📱 Mobile Friendly Website</p>
-      <p>🎨 Website Design & Update</p>
-    </div>
-
-    <div class="card" id="contact">
-    <div class="card" id="contact">
-  <h2>📞 Contact Me</h2>
-
-  <p>আমার সাথে যোগাযোগ করতে নিচের লিংক ব্যবহার করুন।</p>
-
-  <p>
-    <a href="https://www.facebook.com/share/17bcfMzNbs/" target="_blank">
-      🔵 Facebook
-    </a>
-  </p>
-
-  <p>
-    <a href="https://www.youtube.com/@mdmahabubislam1309" target="_blank">
-      🔴 YouTube
-    </a>
-  </p>
-
-  <p>
-    <a href="https://wa.me/8801630370741" target="_blank">
-      🟢 WhatsApp
-    </a>
-  </p>
-</div>
-
-      <button onclick="alert('ধন্যবাদ!')">
-        Contact Us
-      </button>
-    </div>
-
   </div>
 
+  <!-- About -->
+  <section id="about">
+    <div class="card">
+      <h2>👤 About Me</h2>
+
+      <p>
+        Hello! আমি Mahabub।
+        আমি Technology, Website Design এবং Online কাজ শেখার বিষয়ে আগ্রহী।
+      </p>
+
+      <p>
+        আমার লক্ষ্য হলো নতুন দক্ষতা শেখা এবং নিজের কাজ দিয়ে
+        একটি ভালো online portfolio তৈরি করা।
+      </p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="card">
+      <h2>🛠️ My Services</h2>
+
+      <div class="service">🌐 Website Design</div>
+      <div class="service">💻 HTML & CSS Website</div>
+      <div class="service">📱 Mobile Friendly Website</div>
+      <div class="service">🎨 Website Update & Design</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="card">
+      <h2>📞 Contact Me</h2>
+
+      <p>আমার সাথে যোগাযোগ করতে:</p>
+
+      <div class="social">
+
+        <a
+          href="https://www.facebook.com/share/17bcfMzNbs/"
+          target="_blank">
+          🔵 Facebook
+        </a>
+
+        <a
+          href="https://www.youtube.com/@mdmahabubislam1309"
+          target="_blank">
+          🔴 YouTube
+        </a>
+
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>© 2026 Mahabub Business</p>
+    <p>© 2026 Mahabub. All Rights Reserved.</p>
   </footer>
 
 </body>
