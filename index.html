@@ -3,335 +3,956 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Mahabub | Personal Website</title>
 
+  <meta
+    name="description"
+    content="Mahabub Personal Website - Technology, Website Development, Projects and Services."
+  >
+
   <style>
+
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
       font-family: Arial, sans-serif;
     }
 
     body {
-      background: #f4f7fb;
-      color: #222;
+      background: #f5f7fb;
+      color: #1f2937;
       line-height: 1.6;
     }
 
-    header {
-      background: linear-gradient(135deg, #111827, #2563eb);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
+    a {
+      text-decoration: none;
     }
 
-    header img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid white;
-      margin-bottom: 15px;
-    }
-
-    header h1 {
-      font-size: 35px;
-    }
+    /* NAVBAR */
 
     nav {
-      background: white;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 10px #ddd;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 1000;
+
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+
+      padding: 15px 20px;
+
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
     }
 
     nav a {
-      text-decoration: none;
-      color: #222;
-      margin: 0 10px;
+      color: #1f2937;
       font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.3s;
     }
 
+    nav a:hover {
+      background: #2563eb;
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 90vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 50px 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #111827,
+          #1d4ed8,
+          #2563eb
+        );
+
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .profile-photo {
+      width: 155px;
+      height: 155px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+
+      border: 5px solid white;
+
+      margin-bottom: 20px;
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,0.3);
+
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 8vw, 70px);
+      margin-bottom: 10px;
+    }
+
+    .hero h2 {
+      font-size: clamp(20px, 4vw, 30px);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* BUTTON */
+
+    .btn {
+      display: inline-block;
+
+      padding: 13px 22px;
+
+      border-radius: 10px;
+
+      border: none;
+
+      cursor: pointer;
+
+      font-size: 16px;
+
+      font-weight: bold;
+
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #1d4ed8;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-blue {
+      background: #2563eb;
+      color: white;
+    }
+
+    .btn-blue:hover {
+      background: #1d4ed8;
+      transform: translateY(-3px);
+    }
+
+    .btn-red {
+      background: #dc2626;
+      color: white;
+    }
+
+    /* GENERAL SECTION */
+
     section {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 25px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+    }
+
+    /* ABOUT */
+
+    .about-box {
+      background: white;
+      padding: 35px;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    /* CARDS */
+
+    .cards {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 20px;
     }
 
     .card {
       background: white;
-      padding: 25px;
-      margin: 20px 0;
-      border-radius: 18px;
-      box-shadow: 0 5px 20px #ddd;
-    }
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-    }
+      padding: 30px;
 
-    .service {
-      padding: 25px;
-      background: #eef4ff;
-      border-radius: 15px;
+      border-radius: 20px;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.07);
+
+      transition: 0.3s;
+
       text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow:
+        0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .card-icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    /* PROJECTS */
+
+    .project {
+      text-align: left;
+    }
+
+    .project span {
+      display: inline-block;
+
+      background: #e0ecff;
+
+      color: #1d4ed8;
+
+      padding: 5px 10px;
+
+      border-radius: 20px;
+
+      font-size: 13px;
+
+      margin-top: 15px;
+    }
+
+    /* SOCIAL */
+
+    .social {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 25px;
+    }
+
+    .social a {
+      padding: 12px 20px;
+
+      border-radius: 10px;
+
+      color: white;
+
+      font-weight: bold;
+    }
+
+    .facebook {
+      background: #1877f2;
+    }
+
+    .youtube {
+      background: #ff0000;
+    }
+
+    /* LOGIN */
+
+    .login-area {
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .auth-box,
+    .dashboard {
+      background: white;
+
+      padding: 30px;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
     }
 
     input,
     textarea {
       width: 100%;
-      padding: 13px;
+
+      padding: 14px;
+
       margin: 8px 0;
-      border: 1px solid #ccc;
+
+      border: 1px solid #d1d5db;
+
       border-radius: 10px;
+
       font-size: 16px;
+
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #2563eb;
     }
 
     textarea {
-      min-height: 100px;
+      min-height: 120px;
       resize: vertical;
     }
 
-    button {
-      border: none;
-      padding: 13px 20px;
-      border-radius: 10px;
-      background: #2563eb;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 5px;
-    }
-
-    button:hover {
-      background: #1d4ed8;
-    }
-
-    .danger {
-      background: #dc2626;
-    }
-
-    .danger:hover {
-      background: #b91c1c;
+    .auth-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
     }
 
     .message {
-      margin-top: 10px;
+      margin-top: 12px;
       font-weight: bold;
+      word-break: break-word;
+    }
+
+    #registerBox {
+      display: none;
     }
 
     #userPanel {
       display: none;
     }
 
-    #loginBox,
-    #registerBox {
-      display: block;
-    }
+    /* DASHBOARD */
 
-    #registerBox {
-      display: none;
-    }
-
-    .dashboard-box {
-      background: #f4f7fb;
-      padding: 20px;
-      margin: 15px 0;
-      border-radius: 15px;
+    .dashboard-header {
       text-align: center;
+      margin-bottom: 25px;
     }
 
     .dashboard-icon {
-      font-size: 55px;
+      font-size: 60px;
       margin-bottom: 10px;
     }
 
-    footer {
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 40px;
+    .dashboard-card {
+      background: #f4f7fb;
+
+      padding: 20px;
+
+      border-radius: 15px;
+
+      margin-top: 15px;
     }
 
-    footer a {
-      color: #60a5fa;
-      margin: 0 8px;
+    .status-item {
+      padding: 8px 0;
     }
+
+    /* CONTACT */
+
+    .contact-box {
+      max-width: 700px;
+      margin: auto;
+
+      background: white;
+
+      padding: 30px;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+
+      text-align: center;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111827;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 35px 20px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      nav {
+        gap: 3px;
+      }
+
+      nav a {
+        font-size: 13px;
+        padding: 7px;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      section {
+        padding: 50px 15px;
+      }
+
+      .about-box,
+      .auth-box,
+      .dashboard,
+      .contact-box {
+        padding: 22px;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <img src="FB_IMG_1766404124671.jpg" alt="Mahabub">
-    <h1>Mahabub</h1>
-    <p>Welcome to My Personal Website</p>
-  </header>
 
   <!-- NAVIGATION -->
+
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <a href="#login">Login</a>
+
+    <a href="#home">🏠 Home</a>
+
+    <a href="#about">👤 About</a>
+
+    <a href="#services">💼 Services</a>
+
+    <a href="#projects">🚀 Projects</a>
+
+    <a href="#contact">📩 Contact</a>
+
+    <a href="#login">🔐 Login</a>
+
   </nav>
 
-  <!-- HOME -->
-  <section id="home">
-    <div class="card">
-      <h2>🏠 Welcome</h2>
+
+
+  <!-- HERO -->
+
+  <header class="hero" id="home">
+
+    <div class="hero-content">
+
+      <img
+        src="FB_IMG_1766404124671.jpg"
+        alt="Mahabub"
+        class="profile-photo"
+      >
+
+      <h1>Mahabub</h1>
+
+      <h2>Welcome to My Personal Website</h2>
+
       <p>
-        Hello! আমি Mahabub। এটি আমার Personal Website।
+        Technology • Website • Learning • Projects
       </p>
-      <p>
-        এখানে আমার সম্পর্কে, আমার কাজ এবং আমার শেখার বিষয়গুলো দেখতে পারবে।
-      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          href="#about"
+          class="btn btn-primary"
+        >
+          Explore My Website
+        </a>
+
+        <a
+          href="#contact"
+          class="btn btn-primary"
+        >
+          Contact Me
+        </a>
+
+      </div>
+
     </div>
-  </section>
+
+  </header>
+
+
 
   <!-- ABOUT -->
+
   <section id="about">
-    <div class="card">
+
+    <div class="section-title">
+
       <h2>👤 About Me</h2>
-      <p>
-        আমি Technology, Website Development, Gaming এবং নতুন কিছু শেখার বিষয়ে আগ্রহী।
-      </p>
+
+      <p>কিছু কথা আমার সম্পর্কে</p>
+
     </div>
+
+
+    <div class="about-box">
+
+      <p>
+        Hello! আমি Mahabub।
+        Technology, Website Development,
+        Programming এবং নতুন কিছু শেখার
+        বিষয়ে আমার আগ্রহ আছে।
+      </p>
+
+      <br>
+
+      <p>
+        আমি ধীরে ধীরে HTML, CSS, JavaScript,
+        Firebase এবং Web Development শিখছি
+        এবং নিজের project তৈরি করছি।
+      </p>
+
+    </div>
+
   </section>
+
+
 
   <!-- SERVICES -->
+
   <section id="services">
-    <div class="card">
+
+    <div class="section-title">
+
       <h2>💼 My Services</h2>
 
-      <div class="services">
-
-        <div class="service">
-          <h3>🌐 Website</h3>
-          <p>Simple website তৈরি</p>
-        </div>
-
-        <div class="service">
-          <h3>💻 HTML</h3>
-          <p>HTML দিয়ে webpage তৈরি</p>
-        </div>
-
-        <div class="service">
-          <h3>🎨 CSS</h3>
-          <p>Website design করা</p>
-        </div>
-
-        <div class="service">
-          <h3>⚡ JavaScript</h3>
-          <p>Website interactive করা</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- LOGIN -->
-  <section id="login">
-
-    <div class="card">
-
-      <h2>🔐 Login</h2>
-
-      <!-- LOGIN BOX -->
-      <div id="loginBox">
-
-        <input
-          type="email"
-          id="loginEmail"
-          placeholder="Email"
-        >
-
-        <input
-          type="password"
-          id="loginPassword"
-          placeholder="Password"
-        >
-
-        <button id="loginButton">
-          🔐 Login
-        </button>
-
-        <button id="showRegisterButton">
-          📝 Create Account
-        </button>
-
-        <p id="loginMessage" class="message"></p>
-
-      </div>
-
-      <!-- REGISTER BOX -->
-      <div id="registerBox">
-
-        <h3>📝 Create Account</h3>
-
-        <input
-          type="email"
-          id="registerEmail"
-          placeholder="Email"
-        >
-
-        <input
-          type="password"
-          id="registerPassword"
-          placeholder="Password"
-        >
-
-        <button id="registerButton">
-          📝 Register
-        </button>
-
-        <button id="showLoginButton">
-          🔐 Back to Login
-        </button>
-
-        <p id="registerMessage" class="message"></p>
-
-      </div>
+      <p>আমি যেসব বিষয় নিয়ে কাজ ও শেখার চেষ্টা করছি</p>
 
     </div>
 
-    <!-- USER DASHBOARD -->
-    <div id="userPanel">
+
+    <div class="cards">
+
 
       <div class="card">
 
-        <h2>🎉 Welcome to Your Dashboard</h2>
+        <div class="card-icon">🌐</div>
 
-        <div class="dashboard-box">
+        <h3>Website</h3>
+
+        <p>
+          Simple responsive website তৈরি।
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">🎨</div>
+
+        <h3>Web Design</h3>
+
+        <p>
+          HTML ও CSS দিয়ে সুন্দর design।
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">⚡</div>
+
+        <h3>JavaScript</h3>
+
+        <p>
+          Website-এ interactive feature যোগ করা।
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">🔥</div>
+
+        <h3>Firebase</h3>
+
+        <p>
+          Login এবং database system শেখা ও তৈরি।
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <div class="section-title">
+
+      <h2>🚀 My Projects</h2>
+
+      <p>আমার তৈরি ও শেখার project</p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+      <div class="card project">
+
+        <h3>🌐 Personal Website</h3>
+
+        <p>
+          Mahabub-এর personal website,
+          login system এবং user profile সহ।
+        </p>
+
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>Firebase</span>
+
+      </div>
+
+
+      <div class="card project">
+
+        <h3>🎂 Birthday Website</h3>
+
+        <p>
+          Birthday countdown,
+          photo এবং animation নিয়ে তৈরি project।
+        </p>
+
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+
+      </div>
+
+
+      <div class="card project">
+
+        <h3>🔐 Login System</h3>
+
+        <p>
+          Firebase Authentication ব্যবহার করে
+          Register এবং Login system।
+        </p>
+
+        <span>Firebase</span>
+        <span>Authentication</span>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- WHY -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>⭐ What I Like</h2>
+
+      <p>আমার আগ্রহের কিছু বিষয়</p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+      <div class="card">
+
+        <div class="card-icon">💻</div>
+
+        <h3>Technology</h3>
+
+        <p>
+          নতুন technology সম্পর্কে শেখা।
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">🎮</div>
+
+        <h3>Gaming</h3>
+
+        <p>
+          Gaming এবং entertainment।
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">📚</div>
+
+        <h3>Learning</h3>
+
+        <p>
+          নতুন skill শেখা এবং practice করা।
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- LOGIN -->
+
+  <section id="login">
+
+    <div class="section-title">
+
+      <h2>🔐 Member Area</h2>
+
+      <p>Login করে নিজের profile তৈরি করুন</p>
+
+    </div>
+
+
+    <div class="login-area">
+
+
+      <!-- LOGIN / REGISTER -->
+
+      <div class="auth-box" id="authBox">
+
+
+        <!-- LOGIN -->
+
+        <div id="loginBox">
+
+          <h3>🔐 Login</h3>
+
+          <br>
+
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Email"
+          >
+
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Password"
+          >
+
+          <div class="auth-buttons">
+
+            <button
+              class="btn btn-blue"
+              id="loginButton"
+            >
+              Login
+            </button>
+
+            <button
+              class="btn btn-blue"
+              id="showRegisterButton"
+            >
+              Create Account
+            </button>
+
+          </div>
+
+          <p
+            id="loginMessage"
+            class="message"
+          ></p>
+
+        </div>
+
+
+
+        <!-- REGISTER -->
+
+        <div id="registerBox">
+
+          <h3>📝 Create Account</h3>
+
+          <br>
+
+          <input
+            type="email"
+            id="registerEmail"
+            placeholder="Email"
+          >
+
+          <input
+            type="password"
+            id="registerPassword"
+            placeholder="Password"
+          >
+
+          <div class="auth-buttons">
+
+            <button
+              class="btn btn-blue"
+              id="registerButton"
+            >
+              Register
+            </button>
+
+            <button
+              class="btn btn-blue"
+              id="showLoginButton"
+            >
+              Back to Login
+            </button>
+
+          </div>
+
+          <p
+            id="registerMessage"
+            class="message"
+          ></p>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- DASHBOARD -->
+
+      <div
+        class="dashboard"
+        id="userPanel"
+      >
+
+
+        <div class="dashboard-header">
 
           <div class="dashboard-icon">
             👤
           </div>
 
-          <h3>My Account</h3>
-
-          <p>আপনি সফলভাবে Login করেছেন।</p>
+          <h2>My Dashboard</h2>
 
           <p>
-            <strong>Email:</strong>
-            <span id="userEmail"></span>
+            Welcome!
           </p>
 
         </div>
 
+
+        <!-- ACCOUNT -->
+
+        <div class="dashboard-card">
+
+          <h3>📧 Account</h3>
+
+          <p>
+
+            <strong>Email:</strong>
+
+            <span id="userEmail"></span>
+
+          </p>
+
+        </div>
+
+
+
         <!-- PROFILE -->
-        <div class="dashboard-box">
+
+        <div class="dashboard-card">
 
           <h3>👤 My Profile</h3>
+
+          <br>
 
           <form id="profileForm">
 
@@ -347,31 +968,56 @@
               placeholder="আপনার সম্পর্কে কিছু লিখুন"
             ></textarea>
 
-            <button type="submit">
+            <button
+              type="submit"
+              class="btn btn-blue"
+            >
               💾 Save Profile
             </button>
 
           </form>
 
-          <p id="profileMessage" class="message"></p>
+          <p
+            id="profileMessage"
+            class="message"
+          ></p>
 
         </div>
 
+
+
         <!-- STATUS -->
-        <div class="dashboard-box">
+
+        <div class="dashboard-card">
 
           <h3>📊 Account Status</h3>
 
-          <p>✅ Account Active</p>
-          <p>🌐 Website Member</p>
-          <p>🔐 Secure Login</p>
-          <p>☁️ Firebase Database</p>
+          <div class="status-item">
+            ✅ Account Active
+          </div>
+
+          <div class="status-item">
+            🔐 Firebase Login
+          </div>
+
+          <div class="status-item">
+            ☁️ Realtime Database
+          </div>
+
+          <div class="status-item">
+            📱 Mobile Friendly
+          </div>
 
         </div>
 
-        <button class="danger" id="logoutButton">
+
+        <button
+          class="btn btn-red"
+          id="logoutButton"
+        >
           🚪 Logout
         </button>
+
 
       </div>
 
@@ -379,47 +1025,87 @@
 
   </section>
 
+
+
   <!-- CONTACT -->
+
   <section id="contact">
 
-    <div class="card">
+    <div class="section-title">
 
       <h2>📩 Contact Me</h2>
 
+      <p>Social Media-তে যোগাযোগ করতে পারো</p>
+
+    </div>
+
+
+    <div class="contact-box">
+
+      <h3>Let's Connect 🤝</h3>
+
       <p>
-        আমার সাথে যোগাযোগ করতে নিচের Social Media ব্যবহার করতে পারো।
+        আমার website বা কাজ সম্পর্কে
+        যোগাযোগ করতে নিচের link ব্যবহার করো।
       </p>
 
-      <br>
 
-      <a href="https://www.facebook.com/share/17bcfMzNbs/"
-         target="_blank">
-        Facebook
-      </a>
+      <div class="social">
 
-      <br><br>
+        <a
+          href="https://www.facebook.com/share/17bcfMzNbs/"
+          target="_blank"
+          class="facebook"
+        >
+          Facebook
+        </a>
 
-      <a href="https://www.youtube.com/@mdmahabubislam1309"
-         target="_blank">
-        YouTube
-      </a>
+
+        <a
+          href="https://www.youtube.com/@mdmahabubislam1309"
+          target="_blank"
+          class="youtube"
+        >
+          YouTube
+        </a>
+
+      </div>
 
     </div>
 
   </section>
 
+
+
   <!-- FOOTER -->
+
   <footer>
-    <p>© 2026 Mahabub. All Rights Reserved.</p>
+
+    <h3>Mahabub</h3>
+
+    <p>
+      Learning • Building • Improving 🚀
+    </p>
+
+    <p>
+      © 2026 Mahabub. All Rights Reserved.
+    </p>
+
   </footer>
 
 
+
   <!-- FIREBASE -->
+
   <script type="module">
+
 
     import {
       initializeApp
-    } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+    }
+    from
+    "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+
 
     import {
       getAuth,
@@ -427,21 +1113,28 @@
       signInWithEmailAndPassword,
       signOut,
       onAuthStateChanged
-    } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+    }
+    from
+    "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+
 
     import {
       getDatabase,
       ref,
       set,
       get
-    } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
+    }
+    from
+    "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
+
 
 
     /* FIREBASE CONFIG */
 
     const firebaseConfig = {
 
-      apiKey: "AIzaSyCiSmfgYpvtPMbcVJq55M7_ybHCdd_F7wA",
+      apiKey:
+        "AIzaSyCiSmfgYpvtPMbcVJq55M7_ybHCdd_F7wA",
 
       authDomain:
         "mahabub-website.firebaseapp.com",
@@ -464,13 +1157,18 @@
     };
 
 
-    /* INITIALIZE FIREBASE */
 
-    const app = initializeApp(firebaseConfig);
+    /* INITIALIZE */
 
-    const auth = getAuth(app);
+    const app =
+      initializeApp(firebaseConfig);
 
-    const db = getDatabase(app);
+    const auth =
+      getAuth(app);
+
+    const db =
+      getDatabase(app);
+
 
 
     /* ELEMENTS */
@@ -484,8 +1182,12 @@
     const userPanel =
       document.getElementById("userPanel");
 
+    const authBox =
+      document.getElementById("authBox");
+
     const userEmail =
       document.getElementById("userEmail");
+
 
 
     /* SHOW REGISTER */
@@ -494,11 +1196,14 @@
       .getElementById("showRegisterButton")
       .addEventListener("click", () => {
 
-        loginBox.style.display = "none";
+        loginBox.style.display =
+          "none";
 
-        registerBox.style.display = "block";
+        registerBox.style.display =
+          "block";
 
       });
+
 
 
     /* SHOW LOGIN */
@@ -507,11 +1212,14 @@
       .getElementById("showLoginButton")
       .addEventListener("click", () => {
 
-        registerBox.style.display = "none";
+        registerBox.style.display =
+          "none";
 
-        loginBox.style.display = "block";
+        loginBox.style.display =
+          "block";
 
       });
+
 
 
     /* REGISTER */
@@ -520,14 +1228,23 @@
       .getElementById("registerButton")
       .addEventListener("click", async () => {
 
+
         const email =
-          document.getElementById("registerEmail").value.trim();
+          document
+            .getElementById("registerEmail")
+            .value
+            .trim();
+
 
         const password =
-          document.getElementById("registerPassword").value;
+          document
+            .getElementById("registerPassword")
+            .value;
+
 
         const message =
-          document.getElementById("registerMessage");
+          document
+            .getElementById("registerMessage");
 
 
         if (!email || !password) {
@@ -548,10 +1265,12 @@
             password
           );
 
+
           message.textContent =
             "✅ Account তৈরি হয়েছে!";
 
         }
+
 
         catch (error) {
 
@@ -563,20 +1282,30 @@
       });
 
 
+
     /* LOGIN */
 
     document
       .getElementById("loginButton")
       .addEventListener("click", async () => {
 
+
         const email =
-          document.getElementById("loginEmail").value.trim();
+          document
+            .getElementById("loginEmail")
+            .value
+            .trim();
+
 
         const password =
-          document.getElementById("loginPassword").value;
+          document
+            .getElementById("loginPassword")
+            .value;
+
 
         const message =
-          document.getElementById("loginMessage");
+          document
+            .getElementById("loginMessage");
 
 
         if (!email || !password) {
@@ -597,101 +1326,150 @@
             password
           );
 
+
           message.textContent =
             "✅ Login successful!";
 
         }
 
+
         catch (error) {
 
           message.textContent =
-            "❌ Login failed: " + error.message;
+            "❌ Login failed: " +
+            error.message;
 
         }
 
       });
+
 
 
     /* SAVE PROFILE */
 
     document
       .getElementById("profileForm")
-      .addEventListener("submit", async (event) => {
+      .addEventListener(
+        "submit",
+        async (event) => {
 
-        event.preventDefault();
+
+          event.preventDefault();
 
 
-        const user = auth.currentUser;
+          const user =
+            auth.currentUser;
 
-        if (!user) {
 
-          return;
+          if (!user) {
+
+            return;
+
+          }
+
+
+          const name =
+            document
+              .getElementById("profileName")
+              .value
+              .trim();
+
+
+          const bio =
+            document
+              .getElementById("profileBio")
+              .value
+              .trim();
+
+
+          const message =
+            document
+              .getElementById("profileMessage");
+
+
+          try {
+
+
+            await set(
+
+              ref(
+                db,
+                "users/" + user.uid
+              ),
+
+              {
+
+                name: name,
+
+                bio: bio,
+
+                email: user.email
+
+              }
+
+            );
+
+
+            message.textContent =
+              "✅ Profile saved successfully!";
+
+          }
+
+
+          catch (error) {
+
+            message.textContent =
+              "❌ Save হয়নি: " +
+              error.message;
+
+          }
 
         }
+      );
 
-
-        const name =
-          document.getElementById("profileName").value.trim();
-
-        const bio =
-          document.getElementById("profileBio").value.trim();
-
-        const message =
-          document.getElementById("profileMessage");
-
-
-        try {
-
-          await set(
-            ref(db, "users/" + user.uid),
-            {
-              name: name,
-              bio: bio,
-              email: user.email
-            }
-          );
-
-
-          message.textContent =
-            "✅ Profile Firebase Database-এ Save হয়েছে!";
-
-        }
-
-        catch (error) {
-
-          message.textContent =
-            "❌ Save হয়নি: " + error.message;
-
-        }
-
-      });
 
 
     /* LOAD PROFILE */
 
     async function loadProfile(user) {
 
+
       try {
+
 
         const snapshot =
           await get(
-            ref(db, "users/" + user.uid)
+
+            ref(
+              db,
+              "users/" + user.uid
+            )
+
           );
 
 
         if (snapshot.exists()) {
 
-          const data = snapshot.val();
 
-          document.getElementById("profileName").value =
+          const data =
+            snapshot.val();
+
+
+          document
+            .getElementById("profileName")
+            .value =
             data.name || "";
 
-          document.getElementById("profileBio").value =
+
+          document
+            .getElementById("profileBio")
+            .value =
             data.bio || "";
 
         }
 
       }
+
 
       catch (error) {
 
@@ -705,54 +1483,83 @@
     }
 
 
+
     /* LOGOUT */
 
     document
       .getElementById("logoutButton")
-      .addEventListener("click", async () => {
+      .addEventListener(
+        "click",
+        async () => {
 
-        await signOut(auth);
+          await signOut(auth);
 
-      });
+        }
+      );
+
 
 
     /* AUTH STATE */
 
     onAuthStateChanged(
+
       auth,
+
       async (user) => {
+
 
         if (user) {
 
-          loginBox.style.display = "none";
 
-          registerBox.style.display = "none";
+          authBox.style.display =
+            "none";
 
-          userPanel.style.display = "block";
+
+          userPanel.style.display =
+            "block";
+
 
           userEmail.textContent =
             user.email;
 
+
           await loadProfile(user);
+
 
         }
 
+
         else {
 
-          loginBox.style.display = "block";
 
-          registerBox.style.display = "none";
+          authBox.style.display =
+            "block";
 
-          userPanel.style.display = "none";
 
-          userEmail.textContent = "";
+          loginBox.style.display =
+            "block";
+
+
+          registerBox.style.display =
+            "none";
+
+
+          userPanel.style.display =
+            "none";
+
+
+          userEmail.textContent =
+            "";
 
         }
 
       }
+
     );
 
+
   </script>
+
 
 </body>
 </html>
