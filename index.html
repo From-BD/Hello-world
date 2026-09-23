@@ -725,6 +725,10 @@ Authentication এবং database।
 <p>আমার project collection</p>
 
 </div>
+  <div class="card">
+  <h3>👀 My Visits</h3>
+  <p id="myVisits">0</p>
+</div>
 
 <div class="cards">
 
@@ -1046,6 +1050,32 @@ id="logoutButton">
 
 
 <!-- CONTACT -->
+  <div class="card">
+  <h2>💬 Send Me a Message</h2>
+
+  <input
+    type="text"
+    id="visitorName"
+    placeholder="Your Name"
+  >
+
+  <input
+    type="email"
+    id="visitorEmail"
+    placeholder="Your Email"
+  >
+
+  <textarea
+    id="visitorMessage"
+    placeholder="Write your message..."
+  ></textarea>
+
+  <button id="sendMessage">
+    Send Message
+  </button>
+
+  <p id="messageStatus"></p>
+</div>
 
 <section id="contact">
 
@@ -1602,7 +1632,13 @@ await signOut(auth);
 
 }
 );
+let visits = Number(localStorage.getItem("myWebsiteVisits") || 0);
 
+visits++;
+
+localStorage.setItem("myWebsiteVisits", visits);
+
+document.getElementById("myVisits").textContent = visits;
 
 /* VISITOR COUNTER */
 
