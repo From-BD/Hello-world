@@ -1,1565 +1,1695 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Mahabub | Personal Website</title>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Mahabub | Personal Website</title>
+
+<meta name="description"
+content="Mahabub Personal Website - Technology, Web Development, Projects and Learning.">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:Arial,sans-serif;
+}
+
+:root{
+--bg:#f4f7fb;
+--card:#ffffff;
+--text:#1f2937;
+--muted:#6b7280;
+--primary:#2563eb;
+--primary2:#1d4ed8;
+--nav:#ffffff;
+--border:#e5e7eb;
+}
+
+body.dark{
+--bg:#0f172a;
+--card:#1e293b;
+--text:#f8fafc;
+--muted:#cbd5e1;
+--nav:#111827;
+--border:#334155;
+}
 
-  <meta
-    name="description"
-    content="Mahabub Personal Website - Technology, Website Development, Projects and Services."
-  >
+body{
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+transition:.3s;
+}
 
-  <style>
+a{
+text-decoration:none;
+color:inherit;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: Arial, sans-serif;
-    }
+/* NAV */
 
-    body {
-      background: #f5f7fb;
-      color: #1f2937;
-      line-height: 1.6;
-    }
+nav{
+position:sticky;
+top:0;
+z-index:999;
 
-    a {
-      text-decoration: none;
-    }
+background:var(--nav);
 
-    /* NAVBAR */
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+gap:7px;
 
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
+padding:12px;
+
+box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+nav a{
+padding:8px 10px;
+font-weight:bold;
+border-radius:8px;
+}
+
+nav a:hover{
+background:var(--primary);
+color:white;
+}
+
+.nav-button{
+border:none;
+background:var(--primary);
+color:white;
+padding:9px 13px;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+}
+
+/* HERO */
+
+.hero{
+min-height:90vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
 
-      padding: 15px 20px;
+text-align:center;
+
+padding:50px 20px;
 
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+color:white;
+
+background:
+linear-gradient(
+135deg,
+#111827,
+#1d4ed8,
+#2563eb
+);
+}
+
+.hero-content{
+max-width:850px;
+}
+
+.profile-photo{
+width:160px;
+height:160px;
+
+object-fit:cover;
 
-      gap: 8px;
+border-radius:50%;
+
+border:5px solid white;
 
-      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-    }
+box-shadow:0 10px 35px rgba(0,0,0,.35);
 
-    nav a {
-      color: #1f2937;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
 
-    nav a:hover {
-      background: #2563eb;
-      color: white;
-    }
+}
 
-    /* HERO */
+.hero h1{
+font-size:clamp(40px,9vw,75px);
+margin-top:15px;
+}
 
-    .hero {
-      min-height: 90vh;
+.hero h2{
+font-size:clamp(20px,4vw,30px);
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+.hero p{
+margin:15px 0 25px;
+font-size:18px;
+}
 
-      text-align: center;
+.buttons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+}
 
-      padding: 50px 20px;
+.btn{
+border:none;
+padding:13px 20px;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
 
-      background:
-        linear-gradient(
-          135deg,
-          #111827,
-          #1d4ed8,
-          #2563eb
-        );
+.btn:hover{
+transform:translateY(-3px);
+}
 
-      color: white;
-    }
+.btn-primary{
+background:var(--primary);
+color:white;
+}
 
-    .hero-content {
-      max-width: 850px;
-    }
+.btn-white{
+background:white;
+color:#1d4ed8;
+}
 
-    .profile-photo {
-      width: 155px;
-      height: 155px;
+.btn-red{
+background:#dc2626;
+color:white;
+}
 
-      object-fit: cover;
+/* SEARCH */
 
-      border-radius: 50%;
+.search-area{
+max-width:700px;
+margin:25px auto 0;
+}
 
-      border: 5px solid white;
+.search-area input{
+background:white;
+}
 
-      margin-bottom: 20px;
+/* SECTION */
 
-      box-shadow:
-        0 10px 35px rgba(0,0,0,0.3);
+section{
+max-width:1100px;
+margin:auto;
+padding:65px 20px;
+}
 
-      animation: float 3s ease-in-out infinite;
-    }
+.section-title{
+text-align:center;
+margin-bottom:35px;
+}
 
-    @keyframes float {
+.section-title h2{
+font-size:35px;
+}
 
-      0%,100% {
-        transform: translateY(0);
-      }
+.section-title p{
+color:var(--muted);
+}
 
-      50% {
-        transform: translateY(-10px);
-      }
+/* CARDS */
 
-    }
+.cards{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
 
-    .hero h1 {
-      font-size: clamp(38px, 8vw, 70px);
-      margin-bottom: 10px;
-    }
+.card{
+background:var(--card);
 
-    .hero h2 {
-      font-size: clamp(20px, 4vw, 30px);
-      margin-bottom: 15px;
-    }
+padding:28px;
 
-    .hero p {
-      font-size: 18px;
-      opacity: 0.9;
-      margin-bottom: 25px;
-    }
+border-radius:20px;
 
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+border:1px solid var(--border);
 
-    /* BUTTON */
+box-shadow:0 8px 25px rgba(0,0,0,.06);
 
-    .btn {
-      display: inline-block;
+transition:.3s;
+}
 
-      padding: 13px 22px;
+.card:hover{
+transform:translateY(-6px);
+}
 
-      border-radius: 10px;
+.card-icon{
+font-size:45px;
+margin-bottom:12px;
+}
 
-      border: none;
+.card h3{
+margin-bottom:8px;
+}
 
-      cursor: pointer;
+.card p{
+color:var(--muted);
+}
 
-      font-size: 16px;
+/* ABOUT */
 
-      font-weight: bold;
+.about-box{
+background:var(--card);
 
-      transition: 0.3s;
-    }
+padding:35px;
 
-    .btn-primary {
-      background: white;
-      color: #1d4ed8;
-    }
+border-radius:20px;
 
-    .btn-primary:hover {
-      transform: translateY(-3px);
-    }
+border:1px solid var(--border);
+}
 
-    .btn-blue {
-      background: #2563eb;
-      color: white;
-    }
+/* PROJECT */
 
-    .btn-blue:hover {
-      background: #1d4ed8;
-      transform: translateY(-3px);
-    }
+.project{
+position:relative;
+overflow:hidden;
+}
 
-    .btn-red {
-      background: #dc2626;
-      color: white;
-    }
+.project-tag{
+display:inline-block;
 
-    /* GENERAL SECTION */
+margin-top:15px;
 
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 70px 20px;
-    }
+padding:5px 10px;
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+border-radius:20px;
 
-    .section-title h2 {
-      font-size: 35px;
-      margin-bottom: 10px;
-    }
+background:#dbeafe;
 
-    .section-title p {
-      color: #6b7280;
-    }
+color:#1d4ed8;
 
-    /* ABOUT */
+font-size:13px;
+}
 
-    .about-box {
-      background: white;
-      padding: 35px;
+/* COUNTER */
 
-      border-radius: 20px;
+.counter-box{
+text-align:center;
 
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.08);
-    }
+background:
+linear-gradient(
+135deg,
+#1d4ed8,
+#2563eb
+);
 
-    /* CARDS */
+color:white;
 
-    .cards {
-      display: grid;
+padding:35px;
 
-      grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
+border-radius:20px;
+}
 
-      gap: 20px;
-    }
+.counter-number{
+font-size:55px;
+font-weight:bold;
+}
 
-    .card {
-      background: white;
+/* SOCIAL */
 
-      padding: 30px;
+.social{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+margin-top:20px;
+}
 
-      border-radius: 20px;
+.social a{
+padding:12px 20px;
+border-radius:10px;
+color:white;
+font-weight:bold;
+}
 
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.07);
+.facebook{
+background:#1877f2;
+}
 
-      transition: 0.3s;
+.youtube{
+background:#ff0000;
+}
 
-      text-align: center;
-    }
+/* CONTACT */
 
-    .card:hover {
-      transform: translateY(-7px);
-      box-shadow:
-        0 15px 35px rgba(0,0,0,0.12);
-    }
+.contact-box{
+max-width:700px;
+margin:auto;
 
-    .card-icon {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
+background:var(--card);
 
-    .card h3 {
-      margin-bottom: 10px;
-    }
+padding:30px;
 
-    /* PROJECTS */
+border-radius:20px;
 
-    .project {
-      text-align: left;
-    }
+border:1px solid var(--border);
 
-    .project span {
-      display: inline-block;
+text-align:center;
+}
 
-      background: #e0ecff;
+/* AUTH */
 
-      color: #1d4ed8;
+.login-area{
+max-width:650px;
+margin:auto;
+}
 
-      padding: 5px 10px;
+.auth-box,
+.dashboard{
+background:var(--card);
 
-      border-radius: 20px;
+padding:30px;
 
-      font-size: 13px;
+border-radius:20px;
 
-      margin-top: 15px;
-    }
+border:1px solid var(--border);
 
-    /* SOCIAL */
+box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
 
-    .social {
-      display: flex;
+#registerBox,
+#userPanel{
+display:none;
+}
 
-      justify-content: center;
+input,
+textarea{
+width:100%;
 
-      flex-wrap: wrap;
+padding:14px;
 
-      gap: 12px;
+margin:8px 0;
 
-      margin-top: 25px;
-    }
+border:1px solid var(--border);
 
-    .social a {
-      padding: 12px 20px;
+border-radius:10px;
 
-      border-radius: 10px;
+font-size:16px;
 
-      color: white;
+background:var(--bg);
 
-      font-weight: bold;
-    }
+color:var(--text);
 
-    .facebook {
-      background: #1877f2;
-    }
+outline:none;
+}
 
-    .youtube {
-      background: #ff0000;
-    }
+textarea{
+min-height:120px;
+resize:vertical;
+}
 
-    /* LOGIN */
+.message{
+margin-top:10px;
+font-weight:bold;
+word-break:break-word;
+}
 
-    .login-area {
-      max-width: 650px;
-      margin: auto;
-    }
+/* DASHBOARD */
 
-    .auth-box,
-    .dashboard {
-      background: white;
+.dashboard-header{
+text-align:center;
+margin-bottom:20px;
+}
 
-      padding: 30px;
+.dashboard-icon{
+font-size:60px;
+}
 
-      border-radius: 20px;
+.dashboard-card{
+background:var(--bg);
 
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.08);
-    }
+padding:20px;
 
-    input,
-    textarea {
-      width: 100%;
+border-radius:15px;
 
-      padding: 14px;
+margin:15px 0;
+}
 
-      margin: 8px 0;
+.profile-preview{
+text-align:center;
+padding:15px;
+}
 
-      border: 1px solid #d1d5db;
+.profile-circle{
+width:90px;
+height:90px;
 
-      border-radius: 10px;
+border-radius:50%;
 
-      font-size: 16px;
+object-fit:cover;
 
-      outline: none;
-    }
+border:4px solid var(--primary);
+}
 
-    input:focus,
-    textarea:focus {
-      border-color: #2563eb;
-    }
+/* FOOTER */
 
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
+footer{
+background:#111827;
+color:white;
 
-    .auth-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
+text-align:center;
 
-    .message {
-      margin-top: 12px;
-      font-weight: bold;
-      word-break: break-word;
-    }
+padding:35px 20px;
+}
 
-    #registerBox {
-      display: none;
-    }
+/* MOBILE */
 
-    #userPanel {
-      display: none;
-    }
+@media(max-width:600px){
 
-    /* DASHBOARD */
+nav{
+justify-content:center;
+}
 
-    .dashboard-header {
-      text-align: center;
-      margin-bottom: 25px;
-    }
+nav a{
+font-size:12px;
+padding:7px;
+}
 
-    .dashboard-icon {
-      font-size: 60px;
-      margin-bottom: 10px;
-    }
+section{
+padding:50px 15px;
+}
 
-    .dashboard-card {
-      background: #f4f7fb;
+.hero{
+min-height:80vh;
+}
 
-      padding: 20px;
+.card,
+.about-box,
+.auth-box,
+.dashboard,
+.contact-box{
+padding:22px;
+}
 
-      border-radius: 15px;
+}
 
-      margin-top: 15px;
-    }
+</style>
 
-    .status-item {
-      padding: 8px 0;
-    }
-
-    /* CONTACT */
-
-    .contact-box {
-      max-width: 700px;
-      margin: auto;
-
-      background: white;
-
-      padding: 30px;
-
-      border-radius: 20px;
-
-      box-shadow:
-        0 10px 30px rgba(0,0,0,0.08);
-
-      text-align: center;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #111827;
-
-      color: white;
-
-      text-align: center;
-
-      padding: 35px 20px;
-    }
-
-    footer p {
-      margin: 5px 0;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 600px) {
-
-      nav {
-        gap: 3px;
-      }
-
-      nav a {
-        font-size: 13px;
-        padding: 7px;
-      }
-
-      .hero {
-        min-height: 80vh;
-      }
-
-      section {
-        padding: 50px 15px;
-      }
-
-      .about-box,
-      .auth-box,
-      .dashboard,
-      .contact-box {
-        padding: 22px;
-      }
-
-    }
-
-  </style>
 </head>
-
 
 <body>
 
 
-  <!-- NAVIGATION -->
+<!-- NAVIGATION -->
 
-  <nav>
+<nav>
 
-    <a href="#home">🏠 Home</a>
+<a href="#home">🏠 Home</a>
 
-    <a href="#about">👤 About</a>
+<a href="#about">👤 About</a>
 
-    <a href="#services">💼 Services</a>
+<a href="#services">💼 Services</a>
 
-    <a href="#projects">🚀 Projects</a>
+<a href="#projects">🚀 Projects</a>
 
-    <a href="#contact">📩 Contact</a>
+<a href="#contact">📩 Contact</a>
 
-    <a href="#login">🔐 Login</a>
+<a href="#login">🔐 Login</a>
 
-  </nav>
+<button
+class="nav-button"
+id="darkModeButton">
+🌙
+</button>
 
+</nav>
 
 
-  <!-- HERO -->
+<!-- HERO -->
 
-  <header class="hero" id="home">
+<header
+class="hero"
+id="home">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-      <img
-        src="FB_IMG_1766404124671.jpg"
-        alt="Mahabub"
-        class="profile-photo"
-      >
+<img
+src="FB_IMG_1766404124671.jpg"
+alt="Mahabub"
+class="profile-photo">
 
-      <h1>Mahabub</h1>
+<h1>Mahabub</h1>
 
-      <h2>Welcome to My Personal Website</h2>
+<h2>Personal Website</h2>
 
-      <p>
-        Technology • Website • Learning • Projects
-      </p>
+<p>
+Technology • Website • Programming • Learning
+</p>
 
-      <div class="hero-buttons">
+<div class="buttons">
 
-        <a
-          href="#about"
-          class="btn btn-primary"
-        >
-          Explore My Website
-        </a>
+<a
+href="#about"
+class="btn btn-white">
+Explore Website
+</a>
 
-        <a
-          href="#contact"
-          class="btn btn-primary"
-        >
-          Contact Me
-        </a>
+<a
+href="#contact"
+class="btn btn-white">
+Contact Me
+</a>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </header>
+</header>
 
 
+<!-- SEARCH -->
 
-  <!-- ABOUT -->
+<section>
 
-  <section id="about">
+<div class="section-title">
 
-    <div class="section-title">
+<h2>🔎 Search Website</h2>
 
-      <h2>👤 About Me</h2>
+<p>Website-এর section খুঁজে দেখুন</p>
 
-      <p>কিছু কথা আমার সম্পর্কে</p>
+</div>
 
-    </div>
+<div class="search-area">
 
+<input
+type="text"
+id="searchInput"
+placeholder="যেমন: Website, Firebase, Project...">
 
-    <div class="about-box">
+</div>
 
-      <p>
-        Hello! আমি Mahabub।
-        Technology, Website Development,
-        Programming এবং নতুন কিছু শেখার
-        বিষয়ে আমার আগ্রহ আছে।
-      </p>
+</section>
 
-      <br>
 
-      <p>
-        আমি ধীরে ধীরে HTML, CSS, JavaScript,
-        Firebase এবং Web Development শিখছি
-        এবং নিজের project তৈরি করছি।
-      </p>
+<!-- ABOUT -->
 
-    </div>
+<section id="about">
 
-  </section>
+<div class="section-title">
 
+<h2>👤 About Me</h2>
 
+<p>আমার সম্পর্কে</p>
 
-  <!-- SERVICES -->
+</div>
 
-  <section id="services">
+<div class="about-box">
 
-    <div class="section-title">
+<p>
+Hello! আমি Mahabub।
+Technology, Website Development,
+Programming এবং নতুন কিছু শেখার
+বিষয়ে আমার আগ্রহ আছে।
+</p>
 
-      <h2>💼 My Services</h2>
+<br>
 
-      <p>আমি যেসব বিষয় নিয়ে কাজ ও শেখার চেষ্টা করছি</p>
+<p>
+আমি HTML, CSS, JavaScript,
+Firebase এবং Web Development
+শিখছি এবং নিজের project তৈরি করছি।
+</p>
 
-    </div>
+</div>
 
+</section>
 
-    <div class="cards">
 
+<!-- SERVICES -->
 
-      <div class="card">
+<section id="services">
 
-        <div class="card-icon">🌐</div>
+<div class="section-title">
 
-        <h3>Website</h3>
+<h2>💼 Services</h2>
 
-        <p>
-          Simple responsive website তৈরি।
-        </p>
+<p>আমার শেখা ও কাজের ক্ষেত্র</p>
 
-      </div>
+</div>
 
+<div class="cards">
 
-      <div class="card">
 
-        <div class="card-icon">🎨</div>
+<div class="card searchable">
 
-        <h3>Web Design</h3>
+<div class="card-icon">🌐</div>
 
-        <p>
-          HTML ও CSS দিয়ে সুন্দর design।
-        </p>
+<h3>Website</h3>
 
-      </div>
+<p>
+Responsive website তৈরি।
+</p>
 
+</div>
 
-      <div class="card">
 
-        <div class="card-icon">⚡</div>
+<div class="card searchable">
 
-        <h3>JavaScript</h3>
+<div class="card-icon">🎨</div>
 
-        <p>
-          Website-এ interactive feature যোগ করা।
-        </p>
+<h3>Web Design</h3>
 
-      </div>
+<p>
+HTML ও CSS দিয়ে design।
+</p>
 
+</div>
 
-      <div class="card">
 
-        <div class="card-icon">🔥</div>
+<div class="card searchable">
 
-        <h3>Firebase</h3>
+<div class="card-icon">⚡</div>
 
-        <p>
-          Login এবং database system শেখা ও তৈরি।
-        </p>
+<h3>JavaScript</h3>
 
-      </div>
+<p>
+Interactive website feature।
+</p>
 
+</div>
 
-    </div>
 
-  </section>
+<div class="card searchable">
 
+<div class="card-icon">🔥</div>
 
+<h3>Firebase</h3>
 
-  <!-- PROJECTS -->
+<p>
+Authentication এবং database।
+</p>
 
-  <section id="projects">
+</div>
 
-    <div class="section-title">
 
-      <h2>🚀 My Projects</h2>
+</div>
 
-      <p>আমার তৈরি ও শেখার project</p>
+</section>
 
-    </div>
 
+<!-- PROJECTS -->
 
-    <div class="cards">
+<section id="projects">
 
+<div class="section-title">
 
-      <div class="card project">
+<h2>🚀 Projects</h2>
 
-        <h3>🌐 Personal Website</h3>
+<p>আমার project collection</p>
 
-        <p>
-          Mahabub-এর personal website,
-          login system এবং user profile সহ।
-        </p>
+</div>
 
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>Firebase</span>
+<div class="cards">
 
-      </div>
 
+<div class="card searchable">
 
-      <div class="card project">
+<div class="card-icon">🌐</div>
 
-        <h3>🎂 Birthday Website</h3>
+<h3>Personal Website</h3>
 
-        <p>
-          Birthday countdown,
-          photo এবং animation নিয়ে তৈরি project।
-        </p>
+<p>
+Login, profile এবং Firebase
+সহ personal website।
+</p>
 
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
+<span class="project-tag">
+HTML + CSS + Firebase
+</span>
 
-      </div>
+</div>
 
 
-      <div class="card project">
+<div class="card searchable">
 
-        <h3>🔐 Login System</h3>
+<div class="card-icon">🎂</div>
 
-        <p>
-          Firebase Authentication ব্যবহার করে
-          Register এবং Login system।
-        </p>
+<h3>Birthday Website</h3>
 
-        <span>Firebase</span>
-        <span>Authentication</span>
+<p>
+Birthday countdown,
+photo এবং animation project।
+</p>
 
-      </div>
+<span class="project-tag">
+JavaScript
+</span>
 
+</div>
 
-    </div>
 
-  </section>
+<div class="card searchable">
 
+<div class="card-icon">🔐</div>
 
+<h3>Login System</h3>
 
-  <!-- WHY -->
+<p>
+Firebase Authentication
+ভিত্তিক login system।
+</p>
 
-  <section>
+<span class="project-tag">
+Firebase
+</span>
 
-    <div class="section-title">
+</div>
 
-      <h2>⭐ What I Like</h2>
 
-      <p>আমার আগ্রহের কিছু বিষয়</p>
+<div class="card searchable">
 
-    </div>
+<div class="card-icon">📱</div>
 
+<h3>Mobile Website</h3>
 
-    <div class="cards">
+<p>
+Phone-friendly responsive
+website design।
+</p>
 
+<span class="project-tag">
+Responsive
+</span>
 
-      <div class="card">
+</div>
 
-        <div class="card-icon">💻</div>
 
-        <h3>Technology</h3>
+</div>
 
-        <p>
-          নতুন technology সম্পর্কে শেখা।
-        </p>
+</section>
 
-      </div>
 
+<!-- VISITOR COUNTER -->
 
-      <div class="card">
+<section>
 
-        <div class="card-icon">🎮</div>
+<div class="counter-box">
 
-        <h3>Gaming</h3>
+<h2>👥 Website Visitors</h2>
 
-        <p>
-          Gaming এবং entertainment।
-        </p>
+<div
+class="counter-number"
+id="visitorCount">
+0
+</div>
 
-      </div>
+<p>
+Thank you for visiting my website ❤️
+</p>
 
+</div>
 
-      <div class="card">
+</section>
 
-        <div class="card-icon">📚</div>
 
-        <h3>Learning</h3>
+<!-- LOGIN -->
 
-        <p>
-          নতুন skill শেখা এবং practice করা।
-        </p>
+<section id="login">
 
-      </div>
+<div class="section-title">
 
+<h2>🔐 Member Area</h2>
 
-    </div>
+<p>
+Login করে নিজের profile তৈরি করুন
+</p>
 
-  </section>
+</div>
 
 
+<div class="login-area">
 
-  <!-- LOGIN -->
 
-  <section id="login">
+<!-- AUTH -->
 
-    <div class="section-title">
+<div
+class="auth-box"
+id="authBox">
 
-      <h2>🔐 Member Area</h2>
 
-      <p>Login করে নিজের profile তৈরি করুন</p>
+<!-- LOGIN -->
 
-    </div>
+<div id="loginBox">
 
+<h3>🔐 Login</h3>
 
-    <div class="login-area">
+<input
+type="email"
+id="loginEmail"
+placeholder="Email">
 
+<input
+type="password"
+id="loginPassword"
+placeholder="Password">
 
-      <!-- LOGIN / REGISTER -->
+<div class="buttons">
 
-      <div class="auth-box" id="authBox">
+<button
+class="btn btn-primary"
+id="loginButton">
+Login
+</button>
 
+<button
+class="btn btn-primary"
+id="showRegisterButton">
+Create Account
+</button>
 
-        <!-- LOGIN -->
+</div>
 
-        <div id="loginBox">
+<p
+id="loginMessage"
+class="message">
+</p>
 
-          <h3>🔐 Login</h3>
+</div>
 
-          <br>
 
-          <input
-            type="email"
-            id="loginEmail"
-            placeholder="Email"
-          >
+<!-- REGISTER -->
 
-          <input
-            type="password"
-            id="loginPassword"
-            placeholder="Password"
-          >
+<div id="registerBox">
 
-          <div class="auth-buttons">
+<h3>📝 Create Account</h3>
 
-            <button
-              class="btn btn-blue"
-              id="loginButton"
-            >
-              Login
-            </button>
+<input
+type="email"
+id="registerEmail"
+placeholder="Email">
 
-            <button
-              class="btn btn-blue"
-              id="showRegisterButton"
-            >
-              Create Account
-            </button>
+<input
+type="password"
+id="registerPassword"
+placeholder="Password">
 
-          </div>
+<div class="buttons">
 
-          <p
-            id="loginMessage"
-            class="message"
-          ></p>
+<button
+class="btn btn-primary"
+id="registerButton">
+Register
+</button>
 
-        </div>
+<button
+class="btn btn-primary"
+id="showLoginButton">
+Back to Login
+</button>
 
+</div>
 
+<p
+id="registerMessage"
+class="message">
+</p>
 
-        <!-- REGISTER -->
+</div>
 
-        <div id="registerBox">
+</div>
 
-          <h3>📝 Create Account</h3>
 
-          <br>
+<!-- DASHBOARD -->
 
-          <input
-            type="email"
-            id="registerEmail"
-            placeholder="Email"
-          >
+<div
+class="dashboard"
+id="userPanel">
 
-          <input
-            type="password"
-            id="registerPassword"
-            placeholder="Password"
-          >
 
-          <div class="auth-buttons">
+<div class="dashboard-header">
 
-            <button
-              class="btn btn-blue"
-              id="registerButton"
-            >
-              Register
-            </button>
+<div class="dashboard-icon">
+👤
+</div>
 
-            <button
-              class="btn btn-blue"
-              id="showLoginButton"
-            >
-              Back to Login
-            </button>
+<h2>My Dashboard</h2>
 
-          </div>
+<p>
+Welcome to your account
+</p>
 
-          <p
-            id="registerMessage"
-            class="message"
-          ></p>
+</div>
 
-        </div>
 
+<div class="dashboard-card">
 
-      </div>
+<h3>📧 Account</h3>
 
+<p>
 
+<strong>Email:</strong>
 
-      <!-- DASHBOARD -->
+<span id="userEmail"></span>
 
-      <div
-        class="dashboard"
-        id="userPanel"
-      >
+</p>
 
+</div>
 
-        <div class="dashboard-header">
 
-          <div class="dashboard-icon">
-            👤
-          </div>
+<!-- PROFILE -->
 
-          <h2>My Dashboard</h2>
+<div class="dashboard-card">
 
-          <p>
-            Welcome!
-          </p>
+<h3>👤 My Profile</h3>
 
-        </div>
+<div class="profile-preview">
 
+<img
+src="FB_IMG_1766404124671.jpg"
+class="profile-circle"
+id="dashboardPhoto"
+alt="Profile">
 
-        <!-- ACCOUNT -->
+</div>
 
-        <div class="dashboard-card">
+<input
+type="text"
+id="profileName"
+placeholder="আপনার নাম">
 
-          <h3>📧 Account</h3>
+<textarea
+id="profileBio"
+placeholder="আপনার সম্পর্কে কিছু লিখুন">
+</textarea>
 
-          <p>
+<button
+class="btn btn-primary"
+id="saveProfileButton">
 
-            <strong>Email:</strong>
+💾 Save Profile
 
-            <span id="userEmail"></span>
+</button>
 
-          </p>
+<p
+id="profileMessage"
+class="message">
+</p>
 
-        </div>
+</div>
 
 
+<div class="dashboard-card">
 
-        <!-- PROFILE -->
+<h3>📊 Account Status</h3>
 
-        <div class="dashboard-card">
+<p>✅ Account Active</p>
 
-          <h3>👤 My Profile</h3>
+<p>🔐 Firebase Login</p>
 
-          <br>
+<p>☁️ Realtime Database</p>
 
-          <form id="profileForm">
+<p>📱 Mobile Friendly</p>
 
-            <input
-              type="text"
-              id="profileName"
-              placeholder="আপনার নাম"
-              required
-            >
+</div>
 
-            <textarea
-              id="profileBio"
-              placeholder="আপনার সম্পর্কে কিছু লিখুন"
-            ></textarea>
 
-            <button
-              type="submit"
-              class="btn btn-blue"
-            >
-              💾 Save Profile
-            </button>
+<button
+class="btn btn-red"
+id="logoutButton">
 
-          </form>
+🚪 Logout
 
-          <p
-            id="profileMessage"
-            class="message"
-          ></p>
+</button>
 
-        </div>
+</div>
 
+</div>
 
+</section>
 
-        <!-- STATUS -->
 
-        <div class="dashboard-card">
+<!-- CONTACT -->
 
-          <h3>📊 Account Status</h3>
+<section id="contact">
 
-          <div class="status-item">
-            ✅ Account Active
-          </div>
+<div class="section-title">
 
-          <div class="status-item">
-            🔐 Firebase Login
-          </div>
+<h2>📩 Contact Me</h2>
 
-          <div class="status-item">
-            ☁️ Realtime Database
-          </div>
+<p>Let's connect</p>
 
-          <div class="status-item">
-            📱 Mobile Friendly
-          </div>
+</div>
 
-        </div>
 
+<div class="contact-box">
 
-        <button
-          class="btn btn-red"
-          id="logoutButton"
-        >
-          🚪 Logout
-        </button>
+<h3>
+আপনার মতামত আমার জন্য গুরুত্বপূর্ণ ❤️
+</h3>
 
+<p>
+Website সম্পর্কে কোনো মতামত থাকলে
+Social Media-তে যোগাযোগ করতে পারেন।
+</p>
 
-      </div>
 
-    </div>
+<div class="social">
 
-  </section>
+<a
+href="https://www.facebook.com/share/17bcfMzNbs/"
+target="_blank"
+class="facebook">
 
+Facebook
 
+</a>
 
-  <!-- CONTACT -->
 
-  <section id="contact">
+<a
+href="https://www.youtube.com/@mdmahabubislam1309"
+target="_blank"
+class="youtube">
 
-    <div class="section-title">
+YouTube
 
-      <h2>📩 Contact Me</h2>
+</a>
 
-      <p>Social Media-তে যোগাযোগ করতে পারো</p>
+</div>
 
-    </div>
+<br>
 
+<button
+class="btn btn-primary"
+id="copyButton">
 
-    <div class="contact-box">
+📋 Copy Website Link
 
-      <h3>Let's Connect 🤝</h3>
+</button>
 
-      <p>
-        আমার website বা কাজ সম্পর্কে
-        যোগাযোগ করতে নিচের link ব্যবহার করো।
-      </p>
+<p
+id="copyMessage"
+class="message">
+</p>
 
+</div>
 
-      <div class="social">
+</section>
 
-        <a
-          href="https://www.facebook.com/share/17bcfMzNbs/"
-          target="_blank"
-          class="facebook"
-        >
-          Facebook
-        </a>
 
+<!-- FOOTER -->
 
-        <a
-          href="https://www.youtube.com/@mdmahabubislam1309"
-          target="_blank"
-          class="youtube"
-        >
-          YouTube
-        </a>
+<footer>
 
-      </div>
+<h3>Mahabub</h3>
 
-    </div>
+<p>
+Learning • Building • Improving 🚀
+</p>
 
-  </section>
+<p>
+© 2026 Mahabub
+</p>
 
+</footer>
 
 
-  <!-- FOOTER -->
+<!-- FIREBASE -->
 
-  <footer>
+<script type="module">
 
-    <h3>Mahabub</h3>
 
-    <p>
-      Learning • Building • Improving 🚀
-    </p>
+import {
+initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
 
-    <p>
-      © 2026 Mahabub. All Rights Reserved.
-    </p>
 
-  </footer>
+import {
+getAuth,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+signOut,
+onAuthStateChanged
+}
+from
+"https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
 
 
+import {
+getDatabase,
+ref,
+set,
+get,
+runTransaction
+}
+from
+"https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
 
-  <!-- FIREBASE -->
 
-  <script type="module">
+/* FIREBASE CONFIG */
 
+const firebaseConfig={
 
-    import {
-      initializeApp
-    }
-    from
-    "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+apiKey:
+"AIzaSyCiSmfgYpvtPMbcVJq55M7_ybHCdd_F7wA",
 
+authDomain:
+"mahabub-website.firebaseapp.com",
 
-    import {
-      getAuth,
-      createUserWithEmailAndPassword,
-      signInWithEmailAndPassword,
-      signOut,
-      onAuthStateChanged
-    }
-    from
-    "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+databaseURL:
+"https://mahabub-website-default-rtdb.firebaseio.com/",
 
+projectId:
+"mahabub-website",
 
-    import {
-      getDatabase,
-      ref,
-      set,
-      get
-    }
-    from
-    "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
+storageBucket:
+"mahabub-website.firebasestorage.app",
 
+messagingSenderId:
+"994924544462",
 
+appId:
+"1:994924544462:web:804a8fae0d3e2805722b9f"
 
-    /* FIREBASE CONFIG */
+};
 
-    const firebaseConfig = {
 
-      apiKey:
-        "AIzaSyCiSmfgYpvtPMbcVJq55M7_ybHCdd_F7wA",
+const app=
+initializeApp(firebaseConfig);
 
-      authDomain:
-        "mahabub-website.firebaseapp.com",
+const auth=
+getAuth(app);
 
-      databaseURL:
-        "https://mahabub-website-default-rtdb.firebaseio.com/",
+const db=
+getDatabase(app);
 
-      projectId:
-        "mahabub-website",
 
-      storageBucket:
-        "mahabub-website.firebasestorage.app",
+/* DARK MODE */
 
-      messagingSenderId:
-        "994924544462",
+const darkButton=
+document.getElementById(
+"darkModeButton"
+);
 
-      appId:
-        "1:994924544462:web:804a8fae0d3e2805722b9f"
+darkButton.addEventListener(
+"click",
+()=>{
 
-    };
+document.body.classList.toggle(
+"dark"
+);
 
+darkButton.textContent=
+document.body.classList.contains("dark")
+?"☀️"
+:"🌙";
 
+}
+);
 
-    /* INITIALIZE */
 
-    const app =
-      initializeApp(firebaseConfig);
+/* SEARCH */
 
-    const auth =
-      getAuth(app);
+const searchInput=
+document.getElementById(
+"searchInput"
+);
 
-    const db =
-      getDatabase(app);
+searchInput.addEventListener(
+"input",
+()=>{
 
+const search=
+searchInput.value
+.toLowerCase()
+.trim();
 
+document
+.querySelectorAll(".searchable")
+.forEach(card=>{
 
-    /* ELEMENTS */
+const text=
+card.innerText
+.toLowerCase();
 
-    const loginBox =
-      document.getElementById("loginBox");
+card.style.display=
+text.includes(search)
+?"block"
+:"none";
 
-    const registerBox =
-      document.getElementById("registerBox");
+});
 
-    const userPanel =
-      document.getElementById("userPanel");
+}
+);
 
-    const authBox =
-      document.getElementById("authBox");
 
-    const userEmail =
-      document.getElementById("userEmail");
+/* REGISTER */
 
+document
+.getElementById("showRegisterButton")
+.addEventListener(
+"click",
+()=>{
 
+document.getElementById(
+"loginBox"
+).style.display="none";
 
-    /* SHOW REGISTER */
+document.getElementById(
+"registerBox"
+).style.display="block";
 
-    document
-      .getElementById("showRegisterButton")
-      .addEventListener("click", () => {
+}
+);
 
-        loginBox.style.display =
-          "none";
 
-        registerBox.style.display =
-          "block";
+/* BACK LOGIN */
 
-      });
+document
+.getElementById("showLoginButton")
+.addEventListener(
+"click",
+()=>{
 
+document.getElementById(
+"registerBox"
+).style.display="none";
 
+document.getElementById(
+"loginBox"
+).style.display="block";
 
-    /* SHOW LOGIN */
+}
+);
 
-    document
-      .getElementById("showLoginButton")
-      .addEventListener("click", () => {
 
-        registerBox.style.display =
-          "none";
+/* REGISTER */
 
-        loginBox.style.display =
-          "block";
+document
+.getElementById("registerButton")
+.addEventListener(
+"click",
+async()=>{
 
-      });
+const email=
+document.getElementById(
+"registerEmail"
+).value.trim();
 
+const password=
+document.getElementById(
+"registerPassword"
+).value;
 
+const message=
+document.getElementById(
+"registerMessage"
+);
 
-    /* REGISTER */
+if(!email||!password){
 
-    document
-      .getElementById("registerButton")
-      .addEventListener("click", async () => {
+message.textContent=
+"Email এবং Password দিন।";
 
+return;
 
-        const email =
-          document
-            .getElementById("registerEmail")
-            .value
-            .trim();
+}
 
+try{
 
-        const password =
-          document
-            .getElementById("registerPassword")
-            .value;
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
 
+message.textContent=
+"✅ Account তৈরি হয়েছে!";
 
-        const message =
-          document
-            .getElementById("registerMessage");
+}
 
+catch(error){
 
-        if (!email || !password) {
+message.textContent=
+"❌ "+error.message;
 
-          message.textContent =
-            "Email এবং Password দিন।";
+}
 
-          return;
+}
+);
 
-        }
 
+/* LOGIN */
 
-        try {
+document
+.getElementById("loginButton")
+.addEventListener(
+"click",
+async()=>{
 
-          await createUserWithEmailAndPassword(
-            auth,
-            email,
-            password
-          );
+const email=
+document.getElementById(
+"loginEmail"
+).value.trim();
 
+const password=
+document.getElementById(
+"loginPassword"
+).value;
 
-          message.textContent =
-            "✅ Account তৈরি হয়েছে!";
+const message=
+document.getElementById(
+"loginMessage"
+);
 
-        }
+if(!email||!password){
 
+message.textContent=
+"Email এবং Password দিন।";
 
-        catch (error) {
+return;
 
-          message.textContent =
-            "❌ " + error.message;
+}
 
-        }
+try{
 
-      });
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
 
+message.textContent=
+"✅ Login successful!";
 
+}
 
-    /* LOGIN */
+catch(error){
 
-    document
-      .getElementById("loginButton")
-      .addEventListener("click", async () => {
+message.textContent=
+"❌ Login failed: "+
+error.message;
 
+}
 
-        const email =
-          document
-            .getElementById("loginEmail")
-            .value
-            .trim();
+}
+);
 
 
-        const password =
-          document
-            .getElementById("loginPassword")
-            .value;
+/* SAVE PROFILE */
 
+document
+.getElementById("saveProfileButton")
+.addEventListener(
+"click",
+async()=>{
 
-        const message =
-          document
-            .getElementById("loginMessage");
+const user=
+auth.currentUser;
 
+if(!user)return;
 
-        if (!email || !password) {
+const name=
+document.getElementById(
+"profileName"
+).value.trim();
 
-          message.textContent =
-            "Email এবং Password দিন।";
+const bio=
+document.getElementById(
+"profileBio"
+).value.trim();
 
-          return;
+const message=
+document.getElementById(
+"profileMessage"
+);
 
-        }
+if(!name){
 
+message.textContent=
+"আপনার নাম লিখুন।";
 
-        try {
+return;
 
-          await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-          );
+}
 
+try{
 
-          message.textContent =
-            "✅ Login successful!";
+await set(
 
-        }
+ref(
+db,
+"users/"+user.uid
+),
 
+{
 
-        catch (error) {
+name:name,
 
-          message.textContent =
-            "❌ Login failed: " +
-            error.message;
+bio:bio,
 
-        }
+email:user.email,
 
-      });
+updatedAt:
+new Date().toISOString()
 
+}
 
+);
 
-    /* SAVE PROFILE */
+message.textContent=
+"✅ Profile saved!";
 
-    document
-      .getElementById("profileForm")
-      .addEventListener(
-        "submit",
-        async (event) => {
+}
 
+catch(error){
 
-          event.preventDefault();
+message.textContent=
+"❌ Save হয়নি: "+
+error.message;
 
+}
 
-          const user =
-            auth.currentUser;
+}
+);
 
 
-          if (!user) {
+/* LOAD PROFILE */
 
-            return;
+async function loadProfile(user){
 
-          }
+try{
 
+const snapshot=
+await get(
 
-          const name =
-            document
-              .getElementById("profileName")
-              .value
-              .trim();
+ref(
+db,
+"users/"+user.uid
+)
 
+);
 
-          const bio =
-            document
-              .getElementById("profileBio")
-              .value
-              .trim();
+if(snapshot.exists()){
 
+const data=
+snapshot.val();
 
-          const message =
-            document
-              .getElementById("profileMessage");
+document.getElementById(
+"profileName"
+).value=
+data.name||"";
 
+document.getElementById(
+"profileBio"
+).value=
+data.bio||"";
 
-          try {
+}
 
+}
 
-            await set(
+catch(error){
 
-              ref(
-                db,
-                "users/" + user.uid
-              ),
+console.log(
+"Profile load error",
+error
+);
 
-              {
+}
 
-                name: name,
+}
 
-                bio: bio,
 
-                email: user.email
+/* AUTH STATE */
 
-              }
+onAuthStateChanged(
+auth,
+async(user)=>{
 
-            );
+const authBox=
+document.getElementById(
+"authBox"
+);
 
+const userPanel=
+document.getElementById(
+"userPanel"
+);
 
-            message.textContent =
-              "✅ Profile saved successfully!";
+if(user){
 
-          }
+authBox.style.display=
+"none";
 
+userPanel.style.display=
+"block";
 
-          catch (error) {
+document.getElementById(
+"userEmail"
+).textContent=
+user.email;
 
-            message.textContent =
-              "❌ Save হয়নি: " +
-              error.message;
+await loadProfile(user);
 
-          }
+}
 
-        }
-      );
+else{
 
+authBox.style.display=
+"block";
 
+userPanel.style.display=
+"none";
 
-    /* LOAD PROFILE */
+document.getElementById(
+"userEmail"
+).textContent="";
 
-    async function loadProfile(user) {
+}
 
+}
+);
 
-      try {
 
+/* LOGOUT */
 
-        const snapshot =
-          await get(
+document
+.getElementById("logoutButton")
+.addEventListener(
+"click",
+async()=>{
 
-            ref(
-              db,
-              "users/" + user.uid
-            )
+await signOut(auth);
 
-          );
+}
+);
 
 
-        if (snapshot.exists()) {
+/* VISITOR COUNTER */
 
+async function updateVisitorCount(){
 
-          const data =
-            snapshot.val();
+try{
 
+const countRef=
+ref(
+db,
+"websiteStats/visitors"
+);
 
-          document
-            .getElementById("profileName")
-            .value =
-            data.name || "";
+const result=
+await runTransaction(
+countRef,
+(current)=>{
 
+return (current||0)+1;
 
-          document
-            .getElementById("profileBio")
-            .value =
-            data.bio || "";
+}
+);
 
-        }
+document.getElementById(
+"visitorCount"
+).textContent=
+result.snapshot.val();
 
-      }
+}
 
+catch(error){
 
-      catch (error) {
+console.log(
+"Visitor counter:",
+error
+);
 
-        console.log(
-          "Profile load error:",
-          error
-        );
+document.getElementById(
+"visitorCount"
+).textContent=
+"—";
 
-      }
+}
 
-    }
+}
 
+updateVisitorCount();
 
 
-    /* LOGOUT */
+/* COPY LINK */
 
-    document
-      .getElementById("logoutButton")
-      .addEventListener(
-        "click",
-        async () => {
+document
+.getElementById("copyButton")
+.addEventListener(
+"click",
+async()=>{
 
-          await signOut(auth);
+const link=
+window.location.href;
 
-        }
-      );
+const message=
+document.getElementById(
+"copyMessage"
+);
 
+try{
 
+await navigator.clipboard.writeText(
+link
+);
 
-    /* AUTH STATE */
+message.textContent=
+"✅ Website link copied!";
 
-    onAuthStateChanged(
+}
 
-      auth,
+catch(error){
 
-      async (user) => {
+message.textContent=
+"Link copy করা যায়নি।";
 
+}
 
-        if (user) {
+}
+);
 
-
-          authBox.style.display =
-            "none";
-
-
-          userPanel.style.display =
-            "block";
-
-
-          userEmail.textContent =
-            user.email;
-
-
-          await loadProfile(user);
-
-
-        }
-
-
-        else {
-
-
-          authBox.style.display =
-            "block";
-
-
-          loginBox.style.display =
-            "block";
-
-
-          registerBox.style.display =
-            "none";
-
-
-          userPanel.style.display =
-            "none";
-
-
-          userEmail.textContent =
-            "";
-
-        }
-
-      }
-
-    );
-
-
-  </script>
-
+</script>
 
 </body>
 </html>
