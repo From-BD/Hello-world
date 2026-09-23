@@ -834,6 +834,54 @@ Thank you for visiting my website ❤️
 
 
 <!-- LOGIN -->
+  <section id="portfolio">
+
+  <h2>💼 My Portfolio</h2>
+
+  <div class="projects">
+
+    <div class="project-card">
+      <h3>🌐 Personal Website</h3>
+      <p>
+        My personal website built with HTML, CSS, JavaScript
+        and Firebase.
+      </p>
+      <a href="#portfolio">Portfolio</a>
+      <a href="https://from-bd.github.io/Hello-world/" target="_blank">
+        Visit Project
+      </a>
+    </div>
+
+    <div class="project-card">
+      <h3>🎂 Birthday Website</h3>
+      <p>
+        A birthday website with photos, animation and
+        interactive features.
+      </p>
+      <a href="https://from-bd.github.io/Birthday/" target="_blank">
+        Visit Project
+      </a>
+    </div>
+
+    <div class="project-card">
+      <h3>🔐 Login System</h3>
+      <p>
+        Firebase Authentication based registration,
+        login and dashboard system.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3>🧮 Calculator</h3>
+      <p>
+        A JavaScript calculator project for practicing
+        web development.
+      </p>
+    </div>
+
+  </div>
+
+</section>
 
 <section id="login">
 
@@ -1192,6 +1240,13 @@ runTransaction
 }
 from
 "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
+  import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  push
+} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
 
 
 /* FIREBASE CONFIG */
@@ -1724,6 +1779,43 @@ message.textContent=
 
 }
 );
+  document.getElementById("sendMessage").addEventListener("click", async () => {
+
+  const name = document.getElementById("visitorName").value.trim();
+  const email = document.getElementById("visitorEmail").value.trim();
+  const message = document.getElementById("visitorMessage").value.trim();
+  const status = document.getElementById("messageStatus");
+
+  if (!name || !message) {
+    status.textContent = "⚠️ Name এবং Message লিখুন।";
+    return;
+  }
+
+  try {
+
+    const messageRef = push(ref(db, "messages"));
+
+    await set(messageRef, {
+      name: name,
+      email: email,
+      message: message,
+      createdAt: new Date().toISOString()
+    });
+
+    status.textContent = "✅ Message sent successfully!";
+
+    document.getElementById("visitorName").value = "";
+    document.getElementById("visitorEmail").value = "";
+    document.getElementById("visitorMessage").value = "";
+
+  } catch (error) {
+
+    console.error(error);
+    status.textContent = "❌ Message পাঠানো যায়নি।";
+
+  }
+
+});
 
 </script>
 
